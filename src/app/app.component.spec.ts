@@ -21,6 +21,10 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should return correct result when adding', () => {
+    expect(component.add(2, 2)).toBe(4);
+  });
+
   it(`should have as title 'ng-jest'`, () => {
     expect(component.title).toEqual('ng-jest');
   });
