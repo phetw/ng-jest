@@ -5,9 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "jest --no-cache",
-    "test:cov": "jest --no-cache --coverage",
-    "test:watch": "jest --no-cache --watch",
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "test:watch": "jest --watch",
     "lint": "ng lint"
   },
   "jest": {
