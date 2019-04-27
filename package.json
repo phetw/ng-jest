@@ -5,25 +5,26 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "jest --no-cache",
+    "test:cov": "jest --no-cache --coverage",
+    "test:watch": "jest --no-cache --watch",
     "lint": "ng lint"
   },
   "jest": {
-    "verbose": true,
     "preset": "jest-preset-angular",
     "setupFilesAfterEnv": [
-      "<rootDir>/src/test.ts"
+      "<rootDir>/src/jest.config.ts"
     ],
-    "globals": {
-      "ts-jest": {
-        "tsConfig": "<rootDir>/src/tsconfig.spec.json"
-      }
-    },
-    "transform": {
-      "^.+\\.(ts|js|html)$": "ts-jest"
-    },
-    "testPathIgnorePatterns": [
-      "<rootDir>/src/test.ts"
+    "testMatch": [
+      "**/*.spec.ts"
+    ],
+    "collectCoverageFrom": [
+      "./src/app/**/*.ts",
+      "!./src/app/**/*.module.ts"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "html"
     ]
   },
   "dependencies": {
@@ -46,13 +47,9 @@
     "@angular/cli": "~7.3.8",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
-    "@types/jasmine": "~2.8.8",
-    "@types/jasminewd2": "~2.0.3",
     "@types/jest": "^24.0.11",
     "@types/node": "~8.9.4",
-    "codelyzer": "~4.5.0",
-    "jasmine-core": "~2.99.1",
-    "jasmine-spec-reporter": "~4.2.1",
+    "codelyzer": "^5.0.1",
     "jest": "^24.7.1",
     "jest-preset-angular": "^7.1.0",
     "ts-node": "~7.0.0",
